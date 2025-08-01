@@ -11,10 +11,5 @@ public abstract class Clases {
         System.out.println("Temarios");
     }
 
-    public static void verApunteClase(){
-
-    }
-    public static void verListaProfesores(){
-    }
 
 }

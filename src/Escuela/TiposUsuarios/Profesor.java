@@ -12,7 +12,7 @@ public class Profesor extends Persona {
     private String estudios;
     private String materia;
 
-    private List<Estudiante> estudiantes = new ArrayList<>(); // Lista de estudiantes
+    private List<Estudiante> estudiantes = new ArrayList<>(); // Lista de estudiantes del profesor
     private List<Tareas> tareas = new ArrayList<>(); // Tareas creadas por el profesor
     private Horario horario = new Horario(); // Horario personal del profesor
 
@@ -23,6 +23,7 @@ public class Profesor extends Persona {
         tarea.setTitulo(sc.nextLine());
         System.out.print("Escriba el descripcion de la tarea: ");
         tarea.setDescripcion(sc.nextLine());
+        System.out.println("Escribe la fecha de entrega");
         tarea.setFechaEnt(escribirFecha()); // Metodo heredado de Persona
         tareas.add(tarea); // Se guardo en la lista
         sc.nextLine();

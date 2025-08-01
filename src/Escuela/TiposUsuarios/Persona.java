@@ -22,7 +22,7 @@ public abstract class Persona {
         int dia=0,mes=0;
         boolean pass=false;
 
-        System.out.print("Escriba el mes de entrega: ");
+        System.out.print("Escriba el mes: ");
         do{
             try{
                 mes = scint.nextInt();
@@ -36,7 +36,7 @@ public abstract class Persona {
             }
         }while(!pass);
         pass=false;
-        System.out.print("Escriba el dia de entrega:");
+        System.out.print("Escriba el dia: ");
 
         while(!pass){
             try{
@@ -51,7 +51,7 @@ public abstract class Persona {
                     System.out.print("El numero del dia tiene que cuadrar con el mes que introdujiste");
                 }
             }catch(Exception e){
-                System.out.print("El valor del dia tiene que ser un numero:");
+                System.out.print("El valor del dia tiene que ser un numero: ");
                 sc.nextLine();
             }
         }

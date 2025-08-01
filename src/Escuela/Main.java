@@ -151,6 +151,21 @@ public class Main {
         return todosProf;
     }
 
+
+    public BasesData getBasesData(){
+        return basesData;
+    }
+    public LogComputacional getLogComputador(){
+        return logComputador;
+    }
+    public DisSoftware getDisSoftware(){
+        return disSoftware;
+    }
+
+    public PruebaSoft getPruebaSoft() {
+        return pruebaSoft;
+    }
+
     // Verifica si algun usuario existe
     public Boolean verificacion(String usuario, String contr, String cargo){
         boolean respu = false;
@@ -332,13 +347,13 @@ public class Main {
         }while (seg.equals("si")); // repite el menu si el usuario quiere continuar
     }
     // Menu del estudiante en el sistema
-    public void menuEstudiante(int estudiante){
+    public void menuEstudiante(int estudiante)  {
         System.out.println("Bienvenido al sistema "+todosEst.get(estudiante).getNombre()+" que desea hacer el dia de hoy:");
         String seg = "no";
 
         // Bucle principal del menú que se repite mientras el usuario lo desee
         do {
-            System.out.println("1. Ver tareas pendientes \n2. Buscar informacion de un profesor \n3. Mostrar horarios \n4. Ver lista de profesores \n5. Crear apuntes \n6. Mostrar apuntes");
+            System.out.println("1. Ver tareas pendientes \n2. Buscar informacion de un profesor \n3. Mostrar horarios \n4. Ver lista de profesores \n5. Crear apuntes \n6. Mostrar apuntes \n7. Ver apuntes de una materia \n8. Ver temarios");
             String op = sc.nextLine();
             boolean exist;
             switch (op) {
@@ -363,6 +378,12 @@ public class Main {
                     break;
                 case "6":
                     todosEst.get(estudiante).mostrarApunte();
+                    break;
+                case "7":
+                    todosEst.get(estudiante).mostrarApuntesMateria();
+                    break;
+                case "8":
+                    todosEst.get(estudiante).verTemario();
                     break;
                 default:
                     System.out.println("Opcion invalida, intente nuevamente");

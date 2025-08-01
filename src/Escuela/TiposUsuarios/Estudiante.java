@@ -12,7 +12,7 @@ public class Estudiante extends Persona {
     Profesor profesor = new Profesor();
 
     private ArrayList <Apuntes> apuntesEst = new ArrayList<>(); // Apuntes escolares
-    private ArrayList <String> profeEst = new ArrayList<>(); // Lista de nombres de profesores existentes
+    private ArrayList <String> profeEst = new ArrayList<>(); // Lista de nombres de los profesores que lo tienen de alumno
 
     // 1. Permite ver las tareas asignadas por los profesores
     public void verTareas() {
@@ -97,7 +97,7 @@ public class Estudiante extends Persona {
         }
         apuntes.setMateria(materia);
 
-        System.out.println("Escribe la fecha: ");
+        System.out.println("Escribe la fecha ");
         apuntes.setFecha(escribirFecha());
 
 
@@ -145,6 +145,52 @@ public class Estudiante extends Persona {
             }
         } catch (Exception e) {
             System.out.println("No se a ingresado ningun apunte aun");
+        }
+    }
+    // 7. Muestra todos los apuntes de una materia en especifico
+    public void mostrarApuntesMateria(){
+        System.out.println("Escriba el nombre de la materia de la cual desea ver los apuntes (logica computacional, bases de datos, diseño de software o pruebas de software): ");
+        String materia = sc.nextLine();
+        while (!materia.equals("logica computacional")&&(!materia.equals("bases de datos"))&&(!materia.equals("diseño de software"))&&(!materia.equals("pruebas de software"))) {
+            System.out.println(materia + "Es incorrecta, ingresa una materia valida");
+            materia = sc.nextLine();
+        }
+        ArrayList <Apuntes> apuntesMateria = new ArrayList();
+        if (materia.equals("logica computacional")) {
+            apuntesMateria = main.getLogComputador().getApuntesClase();
+        }else if (materia.equals("bases de datos")) {
+            apuntesMateria = main.getBasesData().getApuntesClase();
+        }else if (materia.equals("diseño de software")){
+            apuntesMateria = main.getDisSoftware().getApuntesClase();
+        }else {
+            apuntesMateria = main.getPruebaSoft().getApuntesClase();
+        }
+        System.out.println("Apuntes de la clase de "+materia+":");
+        for (Apuntes i : apuntesMateria){
+            System.out.println("Clase: #"+i.getNumeroDeClase());
+            System.out.println("Fecha: "+i.getFecha());
+            System.out.println("Titulo: "+i.getTitulo());
+            System.out.println("Subtitulo: "+i.getSubtitulo());
+            System.out.println("Descripcion: "+i.getDescripcion());
+            System.out.println("Nota Extra: "+i.getNotasExtra()+"\n");
+        }
+    }
+    // 8. Temario de cada materia
+    public void verTemario(){
+        System.out.println("Escriba el nombre de la materia de la cual quiere ver el temario (logica computacional, bases de datos, diseño de software o pruebas de software): ");
+        String materia = sc.nextLine();
+        while (!materia.equals("logica computacional")&&(!materia.equals("bases de datos"))&&(!materia.equals("diseño de software"))&&(!materia.equals("pruebas de software"))) {
+            System.out.println(materia + "Es incorrecta, ingresa una materia valida");
+            materia = sc.nextLine();
+        }
+        if (materia.equals("logica computacional")) {
+            main.getLogComputador().darClase();
+        }else if (materia.equals("bases de datos")) {
+            main.getBasesData().darClase();
+        }else if (materia.equals("diseño de software")){
+            main.getDisSoftware().darClase();
+        }else {
+            main.getPruebaSoft().darClase();
         }
     }
 }

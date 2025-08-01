@@ -1,7 +1,6 @@
 package Escuela.TiposUsuarios;
 import Escuela.Main;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 
 // Usuario con mas privilegios
 public class Admin extends Persona {
@@ -42,10 +41,13 @@ public class Admin extends Persona {
         System.out.print("Escriba la contraseña del profesor: ");
         newProfesor.setContr(sc.nextLine());
         System.out.print("Escriba la edad del profesor: ");
-        newProfesor.setEdad(scint.nextInt());
-
+        String edad = sc.nextLine();
+        while (!edad.matches("^\\d{1,2}$")) {
+            System.out.println("La edad del profesor debe ser un numero menor a tres dijitos");
+            edad = sc.nextLine();
+        }
+        newProfesor.setEdad(Integer.parseInt(edad));
         newProfesor.setCargo("profesor");
-
         // Datos academicos para el perfil
         System.out.print("Que estudios tiene el profesor? ");
         newProfesor.setEstudios(sc.nextLine());
@@ -91,7 +93,12 @@ public class Admin extends Persona {
         System.out.print("Escriba la contraseña del estudiante: ");
         newEstudiante.setContr(sc.nextLine());
         System.out.print("Escriba la edad del estudiante: ");
-        newEstudiante.setEdad(scint.nextInt());
+        String edad = sc.nextLine();
+        while (!edad.matches("^\\d{1,2}$")) {
+            System.out.println("La edad del estudiante debe ser un numero menor a tres dijitos");
+            edad = sc.nextLine();
+        }
+        newEstudiante.setEdad(Integer.parseInt(edad));
 
         newEstudiante.setCargo("estudiante");
 
